@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
-const morganSetting = process.env.NODE_ENV === 'production';
+const morgan = require('morgan');
+const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
 const POKEDEX = require('./pokedex.json')
 const cors = require('cors')
 const helmet = require('helmet')
@@ -57,3 +58,4 @@ const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`)
 })
+
